@@ -4,7 +4,6 @@ extern crate lalrpop_util;
 pub mod ast;
 pub mod eval;
 pub mod lexer;
-pub mod tpl;
 
 lalrpop_mod!(pub parser);
 
