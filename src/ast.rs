@@ -56,7 +56,7 @@ impl<'template> Renderer<'template> {
     }
 
     fn print_to_target(&self, target: &mut impl Print, s: &str, r: usize, c: usize) -> Result<(), String> {
-        let (width, _height) = target.size();
+        let (_width, _height) = target.size();
         target.print(s, r, c, None);
         // TODO format for width
         Ok(())
