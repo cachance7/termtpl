@@ -4,6 +4,8 @@ version = "0.1.0"
 authors = ["Casey Chance <caseyjchance@gmail.com>"]
 edition = "2018"
 build = "build.rs" # LALRPOP preprocessing
+description = "A simple template engine for rendering to the terminal"
+license = "MIT"
 
 [dependencies]
 lalrpop-util = "0.18.1"
