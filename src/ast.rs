@@ -4,10 +4,10 @@ pub trait Context {
 
 #[derive(Debug, Clone, Default)]
 pub struct Style {
-   fg: u8,
-   bg: u8,
-   bold: bool,
-   underline: bool,
+   pub fg: u8,
+   pub bg: u8,
+   pub bold: bool,
+   pub underline: bool,
 }
 
 pub trait Print: Clone {
