@@ -10,7 +10,7 @@ pub struct Style {
    pub underline: bool,
 }
 
-pub trait Print: Clone {
+pub trait Print {
     fn print(&mut self, s: &str, r: usize, c: usize, style: Option<Style>);
     fn size(&self) -> (usize, usize);
 }
