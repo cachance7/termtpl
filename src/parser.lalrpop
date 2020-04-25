@@ -1,0 +1,38 @@
+use crate::lexer;
+use crate::ast;
+
+grammar<'input>(input: &'input str);
+
+
+pub Template = <Line*>;
+
+Line: ast::Line = {
+  <Elt*> "\n",
+};
+
+Elt: ast::Elt = {
+  <Tag> => ast::Elt::Tag(<>),
+  <Literal> => ast::Elt::Literal(<>),
+};
+
+Tag: ast::Tag = {
+  "{" <"sym"> "}" => ast::Tag::Simple(String::from(<>)),
+}
+
+Literal: String = {
+  " " => String::from(<>),
+  "sym" => String::from(<>),
+}
+
+extern {
+    type Location = usize;
+    type Error = ();
+
+    enum lexer::Tok<'input> {
+        "sym" => lexer::Tok::Symbol(<&'input str>),
+        "{" => lexer::Tok::CurlyOpen,
+        "}" => lexer::Tok::CurlyClose,
+        " " => lexer::Tok::Space,
+        "\n" => lexer::Tok::Linefeed,
+    }
+}

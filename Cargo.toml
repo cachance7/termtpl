@@ -1,0 +1,13 @@
+[package]
+name = "termtpl"
+version = "0.1.0"
+authors = ["Casey Chance <caseyjchance@gmail.com>"]
+edition = "2018"
+build = "build.rs" # LALRPOP preprocessing
+
+[dependencies]
+lalrpop-util = "0.18.1"
+regex = "1"
+
+[build-dependencies]
+lalrpop = "0.18.1"
